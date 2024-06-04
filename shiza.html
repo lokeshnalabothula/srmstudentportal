@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0076)https://sp.srmist.edu.in/srmiststudentportal/students/template/HRDSystem.jsp -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dashboard</title>
+        <link href="./dashboard_files/mainstyle.css" rel="stylesheet">
+        <link href="./dashboard_files/all.css" rel="stylesheet" type="text/css">
+        <link href="./dashboard_files/customstyle.css" rel="stylesheet">
+        <link href="https://sp.srmist.edu.in/srmiststudentportal/resources/Image/college_icon.jpeg" type="Image/x-icon" rel="icon">
+        <script src="./dashboard_files/jquery.min.js.download"></script>
+        <script>
+            var appURL = "";
+            var imageName;
+            var d;
+            $(function () {
+                (function (global) {
+
+                    if (typeof (global) === "undefined")
+                    {
+                        throw new Error("window is undefined");
+                    }
+
+                    var _hash = "!";
+                    var noBackPlease = function () {
+                        global.location.href += "#";
+                        // making sure we have the fruit available for juice....
+                        // 50 milliseconds for just once do not cost much (^__^)
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 50);
+                    };
+                    // Earlier we had setInerval here....
+                    global.onhashchange = function () {
+                        if (global.location.hash !== _hash) {
+                            global.location.hash = _hash;
+                        }
+                    };
+                    global.onload = function () {
+
+                        noBackPlease();
+                        // disables backspace on page except on input fields and textarea..
+                        document.body.onkeydown = function (e) {
+                            var elm = e.target.nodeName.toLowerCase();
+                            if (e.which === 8 && (elm !== 'input' && elm !== 'textarea')) {
+                                e.preventDefault();
+                            }
+                            // stopping event bubbling up the DOM tree..
+                            e.stopPropagation();
+                        };
+                    };
+                })(window);
+                $("#hidchkHostelOpen").val('');
+                funShow(1, '../../students/report/studentProfile.jsp');
+            });
+
+            function funSetFormId(arg) {
+                if (arg > 100) {
+                    $('#logoutModal').modal('show');
+                } else {
+                    $("#hdnFormId").val(arg);
+                    $('#userHomePage').attr("action", "../../students/template/HRDSystem.jsp");
+                    $('#userHomePage').submit();
+                }
+            }
+
+            function funShow(arg, argURL) {
+                appParameter = [];
+                appParameter.push({name: "iden", value: arg});
+                appParameter.push({name: "filter", value: ""});
+                $(".navmenu").removeClass("active");
+                $("#listId" + arg).addClass("active");
+                // if (arg < 100) {
+                //     $("#divMainDetails").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                //     $("#divMainDetails").show();
+                //     $.post(argURL, appParameter, function (data) {
+                //         $("#divMainDetails").html(data);
+                //         $("#divMainDetails").show();
+                //     }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+                //         alert(jqXHR.responseText);
+                //     })
+            //     } else {
+            //         $('#logoutModal').modal('show');
+            //     }
+            // }
+        </script>
+    </head>
+    <body class="nav-fixed">
+        <form id="userHomePage" name="userHomePage" method="post">
+            <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+                <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="./dashboard_files/srmist.png" alt="SRM Logo"> 
+                    <br><font style="font-size: 9pt;">Student Portal</font>
+                </a>
+                <span class="text-custom d-none d-sm-block"><b>Faculty of Engineering and Technology, Kattankulathur</b></span>
+
+                <ul class="navbar-nav align-items-center ml-auto text-center">
+
+                    <a style="cursor:pointer;">
+                        <span class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                            <div class="dropdown-item-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Logout
+                        </span>
+                    </a>
+                </ul>
+            </nav>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <nav class="sidenav shadow-right sidenav-light">
+                        <div class="sidenav-menu">
+                            <div class="nav accordion" id="accordionSidenav">
+
+                                <!-- Sidenav Heading -->
+                                <!--                                <div class="sidenav-menu-heading">Menus</div>-->
+
+                                
+                                <a id="listId1" class="nav-link navmenu active" style="cursor:pointer;" href="dashboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-tachometer-alt"></i></div>
+                                        Dashboard 
+                                </a>
+                                
+                                <a id="listId69" class="nav-link navmenu" style="cursor:pointer;" href="feesdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Fee Payment 
+                                </a>
+                                
+                                <a id="listId17" class="nav-link navmenu" style="cursor:pointer;" href="personaldetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-user"></i></div>
+                                        Personal Details 
+                                </a>
+                                
+                                <a id="listId29" class="nav-link navmenu" style="cursor:pointer;" href="scholarship.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scholarship Renewal Process 
+                                </a>
+                                
+                                <a id="listId7" class="nav-link navmenu" style="cursor:pointer;" href="courselist.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        Course List 
+                                </a>
+                                
+                                <a id="listId8" class="nav-link navmenu" style="cursor:pointer;" href="grade.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Grade / Mark &amp; Credit 
+                                </a>
+                                
+                                <a id="listId24" class="nav-link navmenu" style="cursor:pointer;" href="provisional.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Provisional Results 
+                                </a>
+                                
+                                <a id="listId27" class="nav-link navmenu" style="cursor:pointer;" href="revaluation.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Revaluation Results 
+                                </a>
+                                
+                                <a id="listId9" class="nav-link navmenu" style="cursor:pointer;" href="attendance.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-calculator"></i></div>
+                                        Attendance Details 
+                                </a>
+                                
+                                <a id="listId10" class="nav-link navmenu" style="cursor:pointer;" href="timetable.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-clock"></i></div>
+                                        Timetable 
+                                </a>
+                                
+                                <a id="listId13" class="nav-link navmenu" style="cursor:pointer;" href="internals.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Internal Mark Details 
+                                </a>
+                                
+                                <a id="listId14" class="nav-link navmenu" style="cursor:pointer;" href="booking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Booking 
+                                </a>
+                                
+                                <a id="listId11" class="nav-link navmenu" style="cursor:pointer;" href="details.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Details 
+                                </a>
+                                
+                                <a id="listId12" class="nav-link navmenu" style="cursor:pointer;" href="tdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bus"></i></div>
+                                        Transport Details 
+                                </a>
+                                
+                                <a id="listId3" class="nav-link navmenu" style="cursor:pointer;" href="fdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-receipt"></i></div>
+                                        Finance Details 
+                                </a>
+                                
+                                <a id="listId5" class="nav-link navmenu" style="cursor:pointer;" href="noticeboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Notice Board 
+                                </a>
+                                
+                                <a id="listId21" class="nav-link navmenu" style="cursor:pointer;" href="ABC.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        ABC Entry Request 
+                                </a>
+                                
+                                <a id="listId22" class="nav-link navmenu" style="cursor:pointer;" href="tbooking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-solid fa-bus"></i></div>
+                                        Transport Booking 
+                                </a>
+                                
+                                <a id="listId42" class="nav-link navmenu" style="cursor:pointer;" href="hallticket.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam HallTicket 
+                                </a>
+                                
+                                <a id="listId46" class="nav-link navmenu" style="cursor:pointer;" href="photofordegree.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Photo for Degree certificate 
+                                </a>
+                                
+                                <a id="listId44" class="nav-link navmenu" style="cursor:pointer;" href="summerterm.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-envelope"></i></div>
+                                        Summer Term / Compensatory Registration  
+                                </a>
+                                
+                                <a id="listId49" class="nav-link navmenu" style="cursor:pointer;" href="scribe.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scribe Request 
+                                </a>
+                                
+                                <a id="listId54" class="nav-link navmenu" style="cursor:pointer;" href="review.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Review/Revaluation/Retotaling Registration 
+                                </a>
+                                
+                                <a id="listId57" class="nav-link navmenu" style="cursor:pointer;" href="namechange.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Name Change - Gazette 
+                                </a>
+                                
+                                <a id="listId74" class="nav-link navmenu" style="cursor:pointer;" href="community.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-file"></i></div>
+                                        Community Certificate 
+                                </a>
+                                
+                                <a id="listId83" class="nav-link navmenu" style="cursor:pointer;" href="placement.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Placement Insight Dashboard 
+                                </a>
+                                
+                                <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                                  <div class="nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Sidenav Footer-->
+                        <div class="sidenav-footer">
+                            <div class="sidenav-footer-content">
+                                <div class="sidenav-footer-subtitle">RA2312703010014</div>
+                                <div class="sidenav-footer-subtitle">SHAIK SHIZA</div>                            </div>
+                            <input type="hidden" style="color:white;" id="hidchkHostelOpen" name="hidchkHostelOpen" size="10" value="">
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div id="divMainDetails" style="">
+
+
+
+
+
+
+
+
+
+<style>
+    .imgPhoto {
+        border-radius: 50%;
+    }
+</style>
+<script>
+    function funViewPhotoUpload(imagename, imageid) {
+        $('#uploadphotoModal').modal('show');
+        appParameter = [];
+        appParameter.push({name: "pageAction", value: 10});
+        appParameter.push({name: "imagename", value: imagename});
+        appParameter.push({name: "imageid", value: imageid});
+        appURL = "../../students/template/imageCropUpload.jsp";
+        $("#modalbodycontent").html("<img src='../../resources/Image/loading.gif'>");
+        $.post(appURL, appParameter, function (data) {
+            $("#modalbodycontent").html(data);
+        }, "html").error(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+        })
+    }
+    function funStudentIdCardPrint() {
+        myWindow = window.open("../../students/report/studentIdCardPrint.jsp", this.target);
+        myWindow.focus()
+    }
+    function funLMSLogin() {
+        myWindow = window.open("https://learn.srmonline.in/d2l/lp/auth/saml/initiate-login?entityId=https://accounts.google.com/o/saml2?idpid=C0226rs4q", this.target);
+        myWindow.focus()
+    }        
+
+    function funCodeTantraLogin(argRegNo) {
+        var CTLParameter = [];
+        CTLParameter.push({name: "iden", value: 1});
+        CTLParameter.push({name: "filter", value: argRegNo});
+        $.post("../../students/report/studentProfileResources.jsp", CTLParameter, function (data) {
+            myWindow = window.open(data.redirectURL, this.target);
+            myWindow.focus();
+        }, "json").fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+        })
+    }
+
+    function funLMSLogin(argUserName) {
+        var LMSSSOParameter = [];
+        LMSSSOParameter.push({name: "iden", value: 1});
+        LMSSSOParameter.push({name: "filter", value: argUserName});
+        $.post("../../students/report/lmsssointegrationinner.jsp", LMSSSOParameter, function (data) {
+            myWindow = window.open(data.redirectURL, this.target);
+            myWindow.focus();
+        }, "json").fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+        })
+    }
+
+    function funReloadImage() {
+        appParameter = [];
+        appParameter.push({name: "iden", value: 1});
+        appURL = "../../students/report/studentProfileInner.jsp";
+        $.post(appURL, appParameter, function (data) {
+            funSetFormId(1);
+        }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+        })
+
+
+    }
+</script>
+<div class="container mt-4">
+    <form id="StudentProfile" name="StudentProfile" method="post" autocomplete="off">
+        <div class="alert alert-danger alert-icon" role="alert">
+            <div class="alert-icon-aside">
+                <i class="fa fa-1x fa-info-circle"></i>
+            </div>
+               <div class="alert-icon-content">
+                <h6 class="alert-heading">Important</h6>
+                <strong> Due to maintainance, some functions may not work </strong> 
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-8">  
+                <div class="card border-custom mb-2 mt-1"> 
+                    <div class="card-header bg-custom text-white"><i class="fa fa-tachometer-alt"></i> Student Profile</div>
+                    <div class="card-body py-1"> 
+                        <table class="table table-borderless mb-0">
+                            <tbody>  
+                                <tr class="border-bottom">
+                                    <td style="width: 30%">
+                                        Student Name 
+                                    </td>
+                                    <td>
+                                        <div class="font-weight-bold font-weight-700 text-custom">SHAIK SHIZA</div>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        Student ID
+                                    </td>
+                                    <td>
+                                        <div class="font-weight-bold font-weight-700 text-custom">615808</div>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        Register No. 
+                                    </td>
+                                    <td>
+                                        <div class="font-weight-bold font-weight-700 text-custom">RA2312703010014</div>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        Email ID
+                                    </td>
+                                    <td>
+                                        <div class="font-weight-bold font-weight-700 text-custom">ss1025@srmist.edu.in</div>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        Institution
+                                    </td>
+                                    <td>
+                                        <div class="font-weight-bold">Faculty of Engineering and Technology, Kattankulathur</div>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        Program
+                                    </td>
+                                    <td>
+                                        <div class="font-weight-bold">M.Tech. (Integrated)-Computer Science and Engineering with specialization in Cyber Security and Digital Forensics[UG - FT - ACADEMIC]</div>
+                                    </td>
+                                </tr>
+                                
+                                
+                                
+                                    
+                                    
+                                        <tr class="border-bottom">
+                                            <td>
+                                                Faculty Advisor
+                                            </td>
+                                            <td>
+                                                <div class="font-weight-bold">Dr. Alice  K [102834]</div>
+                                            </td>
+                                        </tr>
+                                    
+                                    
+                                        <tr>
+                                            <td>
+                                                Academic Advisor
+                                            </td>
+                                            <td>
+                                                <div class="font-weight-bold">Dr. Akilandeswari  P [100196]</div>
+                                            </td>
+                                        </tr>
+                                    
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-custom mb-4">
+                    <div class="card-body text-center">
+                            
+                        <div id="divImage">
+                            <img class="img-account-profile mb-2 imgPhoto" src="./dashboard_files/daf2202abed06b21e8eb4ecdbeaf3ab2.jpg" alt="Student Photo">
+                        </div> 
+                        <div class="large font-weight-bold text-custom text-center mb-4">  Current Status: Active</div> 
+
+
+                        <div><img src="./dashboard_files/refresh.png" alt="Click here to reload the photo" style="cursor: pointer;height: 30px;width:30px;" title="Reload Photo" onclick="window.location.reload()"></div>
+
+                         
+
+                    </div>
+                </div>  
+                
+                
+            </div>
+        </div>
+
+        <input type="hidden" id="hdnPageAction" name="hdnPageAction" value="0">
+    </form>
+</div>
+<div class="modal fade" id="uploadphotoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Student Photo</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span class="text-white" aria-hidden="true">?</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalbodycontent">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+                    </main>
+                    <footer class="footer mt-auto footer-light">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 small"></div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <input type="hidden" id="hdnFormStatus" name="hdnFormStatus" value="0">
+            <input type="hidden" id="hdnFormId" name="hdnFormId" value="1">
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span class="text-white" aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to logout?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-custom lift" href="index.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hdnFilename" name="hdnFilename" value="">
+        </form>
+        <script src="./dashboard_files/bootstrap.bundle.min.js.download"></script>
+        <script src="./dashboard_files/jquery.easing.min.js.download"></script>
+        <script src="./dashboard_files/main.js.download"></script>                   
+    
+
+
+
+ </body></html>
