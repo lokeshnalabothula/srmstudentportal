@@ -1,0 +1,776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0076)https://sp.srmist.edu.in/srmiststudentportal/students/template/HRDSystem.jsp -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dashboard</title>
+        <link href="./ABC_files/mainstyle.css" rel="stylesheet">
+        <link href="./ABC_files/all.css" rel="stylesheet" type="text/css">
+        <link href="./ABC_files/customstyle.css" rel="stylesheet">
+        <link href="https://sp.srmist.edu.in/srmiststudentportal/resources/Image/college_icon.jpeg" type="Image/x-icon" rel="icon">
+        <script src="./ABC_files/jquery.min.js.download"></script>
+        <script>
+            var appURL = "";
+            var imageName;
+            var d;
+            $(function () {
+                (function (global) {
+
+                    if (typeof (global) === "undefined")
+                    {
+                        throw new Error("window is undefined");
+                    }
+
+                    var _hash = "!";
+                    var noBackPlease = function () {
+                        global.location.href += "#";
+                        // making sure we have the fruit available for juice....
+                        // 50 milliseconds for just once do not cost much (^__^)
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 50);
+                    };
+                    // Earlier we had setInerval here....
+                    global.onhashchange = function () {
+                        if (global.location.hash !== _hash) {
+                            global.location.hash = _hash;
+                        }
+                    };
+                    global.onload = function () {
+
+                        noBackPlease();
+                        // disables backspace on page except on input fields and textarea..
+                        document.body.onkeydown = function (e) {
+                            var elm = e.target.nodeName.toLowerCase();
+                            if (e.which === 8 && (elm !== 'input' && elm !== 'textarea')) {
+                                e.preventDefault();
+                            }
+                            // stopping event bubbling up the DOM tree..
+                            e.stopPropagation();
+                        };
+                    };
+                })(window);
+                $("#hidchkHostelOpen").val('2024-02-24 11:00:00');
+                funShow(21, '../../students/transaction/abcEntryRequest.jsp');
+            });
+
+            function funSetFormId(arg) {
+                if (arg > 100) {
+                    $('#logoutModal').modal('show');
+                } else {
+                    $("#hdnFormId").val(arg);
+                    $('#userHomePage').attr("action", "../../students/template/HRDSystem.jsp");
+                    $('#userHomePage').submit();
+                }
+            }
+
+            function funShow(arg, argURL) {
+                appParameter = [];
+                appParameter.push({name: "iden", value: arg});
+                appParameter.push({name: "filter", value: ""});
+                $(".navmenu").removeClass("active");
+                $("#listId" + arg).addClass("active");
+                if (arg < 100) {
+                //     $("#divMainDetails").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                //     $("#divMainDetails").show();
+                //     $.post(argURL, appParameter, function (data) {
+                //         $("#divMainDetails").html(data);
+                //         $("#divMainDetails").show();
+                //     }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+                //         alert(jqXHR.responseText);
+                //     })
+                } else {
+                    $('#logoutModal').modal('show');
+                }
+            }
+        </script>
+    </head>
+    <body class="nav-fixed">
+        <form id="userHomePage" name="userHomePage" method="post">
+            <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+                <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="./ABC_files/srmist.png" alt="SRM Logo"> 
+                    <br><font style="font-size: 9pt;">Student Portal</font>
+                </a>
+                <span class="text-custom d-none d-sm-block"><b>Faculty of Engineering and Technology, Kattankulathur</b></span>
+
+                <ul class="navbar-nav align-items-center ml-auto text-center">
+
+                    <a style="cursor:pointer;">
+                        <span class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                            <div class="dropdown-item-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Logout
+                        </span>
+                    </a>
+                </ul>
+            </nav>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <nav class="sidenav shadow-right sidenav-light">
+                        <div class="sidenav-menu">
+                            <div class="nav accordion" id="accordionSidenav">
+
+                                <!-- Sidenav Heading -->
+                                <!--                                <div class="sidenav-menu-heading">Menus</div>-->
+
+                                
+                                <a id="listId1" class="nav-link navmenu" style="cursor:pointer;" href="dashboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-tachometer-alt"></i></div>
+                                        Dashboard 
+                                </a>
+                                
+                                <a id="listId69" class="nav-link navmenu" style="cursor:pointer;" href="feesdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Fee Payment 
+                                </a>
+                                
+                                <a id="listId17" class="nav-link navmenu" style="cursor:pointer;" href="personaldetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-user"></i></div>
+                                        Personal Details 
+                                </a>
+                                
+                                <a id="listId29" class="nav-link navmenu" style="cursor:pointer;" href="scholarship.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scholarship Renewal Process 
+                                </a>
+                                
+                                <a id="listId7" class="nav-link navmenu" style="cursor:pointer;" href="courselist.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        Course List 
+                                </a>
+                                
+                                <a id="listId8" class="nav-link navmenu" style="cursor:pointer;" href="grade.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Grade / Mark &amp; Credit 
+                                </a>
+                                
+                                <a id="listId24" class="nav-link navmenu" style="cursor:pointer;" href="provisional.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Provisional Results 
+                                </a>
+                                
+                                <a id="listId27" class="nav-link navmenu" style="cursor:pointer;" href="revaluation.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Revaluation Results 
+                                </a>
+                                
+                                <a id="listId9" class="nav-link navmenu" style="cursor:pointer;" href="attendance.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-calculator"></i></div>
+                                        Attendance Details 
+                                </a>
+                                
+                                <a id="listId10" class="nav-link navmenu" style="cursor:pointer;" href="timetable.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-clock"></i></div>
+                                        Timetable 
+                                </a>
+                                
+                                <a id="listId13" class="nav-link navmenu" style="cursor:pointer;" href="internals.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Internal Mark Details 
+                                </a>
+                                
+                                <a id="listId14" class="nav-link navmenu" style="cursor:pointer;" href="booking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Booking 
+                                </a>
+                                
+                                <a id="listId11" class="nav-link navmenu" style="cursor:pointer;" href="details.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Details 
+                                </a>
+                                
+                                <a id="listId12" class="nav-link navmenu" style="cursor:pointer;" href="tdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bus"></i></div>
+                                        Transport Details 
+                                </a>
+                                
+                                <a id="listId3" class="nav-link navmenu" style="cursor:pointer;" href="fdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-receipt"></i></div>
+                                        Finance Details 
+                                </a>
+                                
+                                <a id="listId5" class="nav-link navmenu" style="cursor:pointer;" href="noticeboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Notice Board 
+                                </a>
+                                
+                                <a id="listId21" class="nav-link navmenu active" style="cursor:pointer;" href="ABC.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        ABC Entry Request 
+                                </a>
+                                
+                                <a id="listId22" class="nav-link navmenu" style="cursor:pointer;" href="tbooking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-solid fa-bus"></i></div>
+                                        Transport Booking 
+                                </a>
+                                
+                                <a id="listId42" class="nav-link navmenu" style="cursor:pointer;" href="hallticket.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam HallTicket 
+                                </a>
+                                
+                                <a id="listId46" class="nav-link navmenu" style="cursor:pointer;" href="photofordegree.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Photo for Degree certificate 
+                                </a>
+                                
+                                <a id="listId44" class="nav-link navmenu" style="cursor:pointer;" href="summerterm.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-envelope"></i></div>
+                                        Summer Term / Compensatory Registration  
+                                </a>
+                                
+                                <a id="listId49" class="nav-link navmenu" style="cursor:pointer;" href="scribe.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scribe Request 
+                                </a>
+                                
+                                <a id="listId54" class="nav-link navmenu" style="cursor:pointer;" href="review.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Review/Revaluation/Retotaling Registration 
+                                </a>
+                                
+                                <a id="listId57" class="nav-link navmenu" style="cursor:pointer;" href="namechange.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Name Change - Gazette 
+                                </a>
+                                
+                                <a id="listId74" class="nav-link navmenu" style="cursor:pointer;" href="community.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-file"></i></div>
+                                        Community Certificate 
+                                </a>
+                                
+                                <a id="listId83" class="nav-link navmenu" style="cursor:pointer;" href="placement.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Placement Insight Dashboard 
+                                </a>
+                                
+                                <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                                    <div class="nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Sidenav Footer-->
+                        <div class="sidenav-footer">
+                            <div class="sidenav-footer-content">
+                                <div class="sidenav-footer-subtitle">RA2312703010014</div>
+                                <div class="sidenav-footer-subtitle">SHAIK SHIZA</div>
+                            </div>
+                            <input type="hidden" style="color:white;" id="hidchkHostelOpen" name="hidchkHostelOpen" size="10" value="2024-02-24 11:00:00">
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div id="divMainDetails" style="">
+
+
+
+
+
+
+
+
+
+
+<script>
+    var actionURL = "../../students/transaction/abcEntryRequestInner.jsp";
+    $(function () {
+        $(".clsnumber").keypress(function (e) {
+            if (e.which != 8 && e.which != 0 && e.which != 46 && (e.which < 48 || e.which > 57)) {
+                return false;
+            }
+        });
+        $('#txtABCnumber').bind("cut copy paste", function (e) {
+            e.preventDefault();
+        });
+//        $(window).keydown(function (event) {
+//            if (event.keyCode == 13) {
+//                event.preventDefault();
+//                return false;
+//            }
+//        });
+    });
+    
+    function funupload() {
+        $("#divloading").html("");
+        $("#divloadingABC").html("");
+        var uploaddocumentsid = "";//, uploaddocumentsdetail = "";
+        uploaddocumentsid = $('.clsFileId82').map(function () {
+            return this.value;
+        }).get();
+        if (uploaddocumentsid == "") {
+            $("#divloading").html("<div class='alert alert-danger alert-icon border-top-lg mb-2 mt-2' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Kindly attach the Academic Bank of Credit's (ABC) ID Image</div></div>");
+            $("#divloading").show();
+            return false;
+        } else {
+            $("#divloading").html("");
+        }
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call
+                (forms, function (form)
+                {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else {
+                        $("#divloading").html(" ");
+                        $('#confirmationModal').modal('show');
+                    }
+                    form.classList.add('was-validated');
+                }
+                );
+    }
+    function funsubmitrequest() {
+        $("#divloadingABC").html("");
+        var uploaddocumentsid = "", uploaddocumentsdetail = "";
+        uploaddocumentsid = $('.clsFileId82').map(function () {
+            return this.value;
+        }).get();
+        uploaddocumentsdetail = $('.clsAttachmentDetails82').map(function () {
+            return this.value;
+        }).get();
+        if (uploaddocumentsid == "") {
+            $("#divloadingABC").html("<div class='alert alert-danger alert-icon border-top-lg mb-2 mt-2' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Kindly attach the Academic Bank of Credit's (ABC) ID Image</div></div>");
+            return false;
+        } else {
+            $("#divloadingABC").html("");
+        }
+        var applnparameter = $("#frmAbcEntryRequest").serializeArray();
+        applnparameter.push({name: "ids", value: 1});
+        applnparameter.push({name: "hdnuploaddocumentsIds", value: uploaddocumentsid});
+        applnparameter.push({name: "hdnuploaddocumentsdetail", value: uploaddocumentsdetail});
+        $("#divloadingABC").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+        $.post("../../students/transaction/abcEntryRequestInner.jsp", applnparameter, function (data, status) {
+            if (data.resultstatus == 1) {
+                $("#divloadingABC").html("<div class='alert alertsubmit alert-success alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>" + data.result + "</div></div>");
+                $("#divloadingABC").show();
+                $(".alertsubmit").fadeTo(3000, 300).slideUp(200, function () {
+                    $(".alertsubmit").slideUp(300);
+                    $('#hdnFormId').val(21);
+                    $("#userHomePage").attr("action", "../../students/template/HRDSystem.jsp");
+                    $("#userHomePage").submit();
+                });
+            } else {
+                $("#divloadingABC").html("<div class='alert alertsubmit alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>" + data.result + "</div></div>");
+                $("#divloadingABC").show();
+            }
+        }, "json");
+    }
+    
+    function funskipupload() {
+        $('#confirmationModalSkip').modal('show');
+        $("#txtRemarks").focus();
+    }
+    function funskiprequest() {
+        $("#divloadingpopup").html("");
+        if ($('#txtRemarks').val() == "") {
+            $("#divloadingpopup").html("<div class='alert alert-danger alert-icon border-top-lg mb-2 mt-2' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Kindly Fill The Remarks</div></div>");
+            $("#txtRemarks").focus();
+            return false;
+        }
+        var applnparameter = [];
+        applnparameter.push({name: "ids", value: 1});
+        applnparameter.push({name: "hdnRequestTypeId", value: 1});
+        applnparameter.push({name: "txtRemarks", value: $('#txtRemarks').val()});
+        $("#divloadingpopup").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+        $.post("../../students/transaction/studentSkipRequestInner.jsp", applnparameter, function (data, status) {
+            if (data.resultstatus == 1) {
+                $('#txtRemarks').val("")
+                $("#btnConfirm").hide();
+                $("#divloadingpopup").html("<div class='alert alertsubmit alert-success alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>" + data.result + "</div></div>");
+                $("#divloadingpopup").show();
+                $(".alertsubmit").fadeTo(3000, 300).slideUp(200, function () {
+                    $(".alertsubmit").slideUp(300);
+                    $('#hdnFormId').val(1);
+                    $("#userHomePage").attr("action", "../../students/template/HRDSystem.jsp");
+                    $("#userHomePage").submit();
+                });
+            } else {
+                $("#btnConfirm").hide();
+                $("#divloadingpopup").html("<div class='alert alertsubmit alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>" + data.result + "</div></div>");
+                $("#divloadingpopup").show();
+            }
+        }, "json");
+    }
+    //attachment part code starts    
+    function funAttachFile(argTypeId) {
+        $("#divloading").html("");
+        $("#divloading").hide();
+        $("#divFileChooseError").html("");
+        $("#typeid").val(argTypeId);
+        $('#tfileUpload').val("");
+        $("#tfileUpload").focus();
+        $("#btnupload").show();
+        $(".custom-file-label").html("");
+        $('#chkConfirmImage1').prop('checked', false);
+        $('#documentUploadModal').modal('show');
+    }
+    function funuploadAttachment() {
+        if ($("#tfileUpload").val() == "") {
+            $("#divFileChooseError").html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Kindly choose the file</div></div>");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return;
+        }
+        if ($("#chkConfirmImage1").is(":checked")) {
+            $("#divFileChooseError").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+            funImageAttachment();
+        } else {
+            $("#divFileChooseError").html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Confirm the acceptance</div></div>");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+        }
+    }
+    function funImageAttachment() {
+        var AjaxParameter = [];
+        AjaxParameter.push({name: "iden", value: "5"});
+        $.post("../../students/certificateRequest/TranscriptInner.jsp", AjaxParameter, function (data) {
+            funuploadAtt($.trim(data));
+        }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+        });
+        return true;
+    }
+    function funuploadAtt(argId) {
+        var currentTime = new Date();
+        var filetype = $('#tfileUpload').val().split(".");
+        var fileid = argId;
+        var str_currentdate = currentTime.getFullYear() + "_" + parseInt(currentTime.getMonth() + 1) + "_" + currentTime.getDate();
+        str_currentdate += "_" + currentTime.getHours() + "_" + currentTime.getMinutes() + "_" + currentTime.getMilliseconds();
+        var fileName = "ABC_Documents_" + fileid + "_" + str_currentdate;
+        $("#hdnAttachedFileNames").val(fileName);
+        $("#filename").val(fileName);
+        $("#fileid").val(fileid);
+        var appURL = "../../students/template/FileAttachmentWrite.jsp";
+        var form2 = $('#fileUploadAtt')[0];
+        var formData2 = new FormData(form2);
+        $("#btnupload").hide();
+        $.ajax({
+            url: appURL,
+            data: formData2,
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            success: function (data2) {
+                $("#documentUploadModal").modal('hide');
+                $("#FileAttachmentTable" + $('#typeid').val()).append(data2);
+                $('#divAttachFile' + $('#typeid').val()).hide();
+            }
+        });
+    }
+    function load_image(id, ext, filesize)
+    {
+        filesize = Math.round(parseFloat(filesize) / 1024.0, 0);
+        if (parseFloat(filesize) > 200) {
+            $("#divFileChooseError").html("<div class='alert alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Your file size is " + filesize + " KB. Kindly upload the file size below 200 KB</div></div>");
+            $('#tfileUpload').val("");
+            $("#tfileUpload").focus();
+            $(".custom-file-label").html("");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return false;
+        } else if (validateExtension(ext) == false)
+        {
+            $("#divFileChooseError").html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>You can upload (.jpg and .png ) files only.</div></div>");
+            $('#tfileUpload').val("");
+            $("#tfileUpload").focus();
+            $(".custom-file-label").html("");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return false;
+        } else if (ext.indexOf("'") > 0) {
+            $('#divFileChooseError').html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Special characters not allowed in the file name</div></div>");
+            $('#tfileUpload').val("");
+            $("#tfileUpload").focus();
+            $(".custom-file-label").html("");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return false;
+        } else {
+            $("#divFileChooseError").html("");
+            $(".custom-file-label").html($('#tfileUpload').val());
+        }
+    }
+    function validateExtension(v)
+    {
+        var allowedExtensions = new Array("jpg", "JPG", "png", "PNG");
+        for (var ct = 0; ct < allowedExtensions.length; ct++)
+        {
+            sample = v.lastIndexOf(allowedExtensions[ct]);
+            if (sample != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function funRemoveAttachment(rowId, typeid) {
+        $('#rowId').val(rowId);
+        $('#typeid').val(typeid);
+        $('#removedocumentUploadModal').modal('show');
+    }
+    function funConfirmRemoveAttach() {
+        $("#divremoveloading").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+        var url = "../../students/template/FileAttachmentWriteTempMultiple.jsp?Filename=" + $('#rowId').val() + "&pageAction=51";
+        $.ajax({
+            url: url,
+            cache: false,
+            type: "post",
+            success: function (html) {
+                $("#divremoveloading").html("");
+                $("#removedocumentUploadModal").modal('hide');
+                $('#divAttachFile' + $('#typeid').val()).show();
+                $('#FileAttachmentTable' + $('#typeid').val()).html("");
+                $('#filename').val("");
+                $('#fileid').val("");
+                $('#rowId').val("");
+            }
+        });
+    }
+    function funViewAttachmentFile(rowId, argExtension) {
+        // var applnparameter = [];
+        // applnparameter.push({name: "ids", value: "1"});
+        // applnparameter.push({name: "filter", value: rowId});
+        // applnparameter.push({name: "ActualName", value: rowId});
+        // applnparameter.push({name: "fileextension", value: argExtension});
+        // $.post("../../students/template/FileAdmissionAttachmentView.jsp", applnparameter, function (data) {
+        //     var filename = $.trim(data).replace("%20", "");
+        //     var win2 = window.open('../../resources/temp/' + filename, "Attachments", "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=yes,width=800,height=900,left=100,top=100");
+        //     win2.focus();
+        // }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+        //     alert("errpr" + textStatus + "--" + jqXHR.responseText + " " + errorThrown);
+        // });
+    }
+    // File Attachment End
+</script>
+<div class="container mt-4">
+    <div class="alert alert-info alert-icon mb-1 mt-1" role="alert">
+        <div class="alert-icon-content">
+            <h5 class="alert-heading">Note:</h5>
+            <ul>
+                <li><b>After Submission of ABC ID, you can access all other menus</b></li>
+                <li>Please be sure this is one time process, once submitted you can't modified again </li>
+                <li>Please upload your Academic Bank of Credit Image File(JPG or PNG ). File Size should be less than 200 KB</li>
+                <li>Academic Bank of Credits ID(ABC ID) Creation - User Manual <a target="_blank" href="https://webstor.srmist.edu.in/web_assets/downloads/2023/abc-user-manual.pdf">click here</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card mb-4"> 
+        <form name="frmAbcEntryRequest" id="frmAbcEntryRequest" autocomplete="off" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate="">
+            <div class="card-header bg-custom text-white">UPLOAD YOUR ACADEMIC BANK OF CREDIT'S(ABC) DETAILS</div>
+            <table class="table mb-0"> 
+                <tbody> 
+                    <tr class="border-bottom">
+                        <td width="30%"> Student Name</td>
+                        <td><div class="font-weight-bold">SHAIK SHIZA</div></td>
+                    </tr>
+                    <tr class="border-bottom">
+                        <td>Register Number</td>
+                        <td><div class="font-weight-bold">RA2312703010014</div></td>
+                    </tr>
+                    <tr class="border-bottom">
+                        <td>Program  </td>
+                        <td> <div class="font-weight-bold">M.Tech. (Integrated)-Computer Science and Engineering with specialization in Cyber Security and Digital Forensics[UG - FT - ACADEMIC]</div></td>
+                    </tr>
+                    
+                    
+                        
+                        <tr class="border-bottom">
+                            <td>
+                                <label> Academic Bank of Credit's (ABC) ID Number </label>
+                            </td>
+                            <td>
+                                431730576631
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Academic Bank of Credit's (ABC) ID Image</label>
+                            </td>
+                            <td>
+                                in.gov.abc-ABCID-431730576631.pdf&nbsp;&nbsp;<button type="button" class="btn btn-sm alert-success rounded-pill lift mb-1 " onclick="javascript:funViewAttachmentFile(&quot;temp_enrollment_355103_2023_7_24_21_56_261&quot;,&quot;.pdf&quot;)">View</button>&nbsp;
+                            </td><td>
+                        </td></tr>
+                        <tr>
+                            <td>
+                                <label>Submitted on  </label>
+                            </td>
+                            <td>
+                                24-07-2023 10:18:05 PM
+                            </td><td>
+                        </td></tr>
+                    
+                    
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalbodycontent">
+                    Wish to submit the details?
+                    <br>
+                    Note:- Please be sure this is one time process, once submitted you can't modified again 
+                    <br>
+                    <div id="divloadingABC"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-info lift" type="button" onclick="funsubmitrequest()">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirmationModalSkip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalbodycontent">
+                    <div class="row">
+                        <div class="col-md-3"><b>Remarks</b><p class="requiredfield">*</p></div>
+                        <div class="col-md-9"><textarea class="form-control" maxlength="100" id="txtRemarks" name="txtRemarks" required=""></textarea></div>
+                        <div class="col-md-12" id="divloadingpopup"></div> 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-info lift" id="btnConfirm" type="button" onclick="funskiprequest()">Confirm</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-2">
+    <form id="fileUploadAtt" name="fileUploadAtt" method="post" enctype="multipart/form-data">
+        <div class="modal fade" id="documentUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Document Upload</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span class="text-white" aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modalbodycontent">
+                        <div class="alert alert-info alert-icon mb-1 mt-1" role="alert">
+                            <div class="alert-icon-content">
+                                <h5 class="alert-heading">Note:</h5>
+                                <ul>
+                                    The FILE SIZE should be less then 200KB. 
+                                    You can upload (.jpg and .png) files only. 
+                                </ul>
+                            </div>
+                        </div>
+                        <input name="MAX_FILE_SIZE" value="100000" type="hidden">
+                        <input type="hidden" id="filename" name="filename">
+                        <input type="hidden" id="pageAction" name="pageAction" value="3">
+                        <input type="hidden" id="fileid" name="fileid">
+                        <input type="hidden" id="typeid" name="typeid">
+                        <input type="hidden" id="rowId" name="rowId">
+                        <div class="custom-file mt-5 mb-3">
+                            <input type="file" class="custom-file-input" id="tfileUpload" name="tfileUpload" accept=".jpg,.jpeg,.png,.pdf" onchange="load_image(this.id, this.value, this.files[0].size)">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                        <div class="text-danger mb-3">
+                            <input type="checkbox" id="chkConfirmImage1"> I confirm that the file selected by me is correct.
+                        </div>
+                        <div class="mt-1 text-center" id="divFileChooseError"></div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-custom lift" type="button" id="btnupload" onclick="funuploadAttachment()">Upload</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>     
+    <div class="modal fade" id="removedocumentUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Remove Document Upload</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalbodycontent">
+                    Wish to remove attachment?
+                    <br>
+                    <div id="divremoveloading"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-info lift" type="button" onclick="funConfirmRemoveAttach()">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<input type="hidden" id="pageAction" name="pageAction" value="40">-->
+<div id="divProcessUpload" style="display: none;"></div>
+
+
+</div>
+                    </main>
+                    <footer class="footer mt-auto footer-light">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 small"></div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <input type="hidden" id="hdnFormStatus" name="hdnFormStatus" value="0">
+            <input type="hidden" id="hdnFormId" name="hdnFormId" value="1">
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span class="text-white" aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to logout?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-custom lift" href="index.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hdnFilename" name="hdnFilename" value="">
+        </form>
+        <script src="./ABC_files/bootstrap.bundle.min.js.download"></script>
+        <script src="./ABC_files/jquery.easing.min.js.download"></script>
+        <script src="./ABC_files/main.js.download"></script>                   
+    
+
+
+
+ </body></html>
